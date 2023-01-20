@@ -69,7 +69,7 @@ public class PacienteDTO {
                     convenio.getNome(),
                     convenio.getNumero(),
                     convenio.getValidade(),
-                    convenio.getConvenio()
+                    convenio.getConvenioMedico()
             );
         }
     }

@@ -1,7 +1,6 @@
 package com.fisio.demo.paciente.service;
 
 import com.fisio.demo.paciente.CriarPacienteUseCase;
-import com.fisio.demo.paciente.CriarPacienteUseCase.CriarPacienteCommand;
 import com.fisio.demo.paciente.domain.Paciente;
 import com.fisio.demo.paciente.domain.PacienteDomainRepository;
 import lombok.RequiredArgsConstructor;

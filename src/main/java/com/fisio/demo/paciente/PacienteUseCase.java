@@ -4,12 +4,14 @@ import com.fisio.demo.paciente.api.dto.PacienteDTO;
 import com.fisio.demo.paciente.domain.convenio.enums.ConvenioEnum;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
+import lombok.Data;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
 
 import java.time.LocalDate;
 
+@Data
 public class PacienteUseCase {
 
 

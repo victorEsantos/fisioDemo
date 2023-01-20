@@ -1,6 +1,5 @@
 package com.fisio.demo.paciente.api.dto;
 
-import com.fisio.demo.paciente.domain.Paciente;
 import com.fisio.demo.paciente.domain.avaliacao.Avaliacao;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
@@ -9,7 +8,6 @@ import lombok.NoArgsConstructor;
 import lombok.Setter;
 
 import java.time.LocalDate;
-import java.util.Set;
 import java.util.UUID;
 
 @Getter
@@ -31,7 +29,7 @@ public class AvaliacaoDto {
                 .id(avaliacao.getId())
                 .queixa(avaliacao.getQueixa())
                 .tratamento(avaliacao.getTratamento())
-                .avaliacao(avaliacao.getAvaliacao())
+                .avaliacao(avaliacao.getDescricao())
                 .criadoEm(avaliacao.getCriadoEm())
                 .build();
     }

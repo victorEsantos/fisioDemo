@@ -31,7 +31,7 @@ public class Avaliacao {
     private UUID id;
     private String queixa;
     private String tratamento;
-    private String avaliacao;
+    private String descricao;
 
     @CreationTimestamp
     private LocalDate criadoEm;

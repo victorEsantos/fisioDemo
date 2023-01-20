@@ -29,7 +29,7 @@ public class Convenio {
     private String nome;
     private String numero;
     private LocalDate validade;
-    private ConvenioEnum convenio;
+    private ConvenioEnum convenioMedico;
     @OneToOne(mappedBy = "convenio")
     private Paciente paciente;
 
@@ -38,7 +38,7 @@ public class Convenio {
                 .nome(convenio.getNome())
                 .numero(convenio.getNumero())
                 .validade(convenio.getValidade())
-                .convenio(convenio.getConvenio())
+                .convenioMedico(convenio.getConvenio())
                 .build();
     }
 }

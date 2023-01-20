@@ -22,7 +22,7 @@ public class AvaliarPacienteService implements AvaliarPacienteUseCase {
         Avaliacao avaliacao = new Avaliacao();
         avaliacao.setQueixa(command.getQueixa());
         avaliacao.setTratamento(command.getTratamento());
-        avaliacao.setAvaliacao(command.getAvaliacao());
+        avaliacao.setDescricao(command.getAvaliacao());
         avaliacao.setPaciente(paciente);
 
         paciente.getAvaliacoes().add(avaliacao);
