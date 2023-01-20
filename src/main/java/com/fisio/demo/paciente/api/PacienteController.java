@@ -1,6 +1,8 @@
 package com.fisio.demo.paciente.api;
 
+import com.fisio.demo.paciente.AlterarAvaliacaoPacienteUseCase;
 import com.fisio.demo.paciente.AlterarPacienteUseCase;
+import com.fisio.demo.paciente.AvaliarPacienteUseCase;
 import com.fisio.demo.paciente.CriarPacienteUseCase;
 import com.fisio.demo.paciente.CriarPacienteUseCase.CriarPacienteCommand;
 import com.fisio.demo.paciente.ListarPacientesUseCase;
@@ -25,6 +27,9 @@ public class PacienteController {
     private final CriarPacienteUseCase criarPacienteUseCase;
     private final ListarPacientesUseCase listarPacientesUseCase;
     private final AlterarPacienteUseCase alterarPacienteUseCase;
+    private final AvaliarPacienteUseCase avaliarPacienteUseCase;
+    private final AlterarAvaliacaoPacienteUseCase alterarAvaliacaoPacienteUseCase;
+
 
     @PostMapping
     public ResponseEntity<String> create(@RequestBody PacienteDTO dto) {
@@ -49,4 +54,22 @@ public class PacienteController {
 
         return ResponseEntity.ok().build();
     }
+
+    @PostMapping("/{id}/avaliar")
+    public ResponseEntity<String> createAvaliacao(@PathVariable("id") UUID id,
+                                                  @RequestBody AvaliarPacienteUseCase.AvaliarPacienteCommand command) {
+        avaliarPacienteUseCase.execute(id, command);
+
+        return ResponseEntity.ok().build();
+    }
+
+    @PostMapping("/{id}/avaliacoes/{avaliacaoId}/alterar")
+    public ResponseEntity<String> updateAvaliacao(@PathVariable("id") UUID id,
+                                                  @PathVariable("avaliacaoId") UUID avaliacaoId,
+                                                  @RequestBody AlterarAvaliacaoPacienteUseCase.AlterarAvaliacaoPacienteCommand command) {
+        alterarAvaliacaoPacienteUseCase.execute(id, avaliacaoId, command);
+
+        return ResponseEntity.ok().build();
+    }
+
 }

@@ -21,6 +21,7 @@ import javax.persistence.JoinColumn;
 import javax.persistence.OneToMany;
 import javax.persistence.OneToOne;
 import javax.persistence.Table;
+import java.util.HashSet;
 import java.util.Set;
 import java.util.UUID;
 
@@ -58,7 +59,7 @@ public class Paciente {
     private Endereco endereco;
 
     @OneToMany(mappedBy = "paciente", cascade = CascadeType.ALL, fetch = FetchType.LAZY)
-    private Set<Avaliacao> avaliacoes;
+    private Set<Avaliacao> avaliacoes = new HashSet<>();
 
 
     public static Paciente from(CriarPacienteCommand cmd) {
