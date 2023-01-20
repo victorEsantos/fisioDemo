@@ -1,7 +1,7 @@
 package com.fisio.demo.paciente.domain.evolucao;
 
-import com.fisio.demo.paciente.domain.Paciente;
 import com.fisio.demo.paciente.domain.avaliacao.Avaliacao;
+import com.fisio.demo.paciente.domain.convenio.enums.ConvenioEnum;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
@@ -23,7 +23,7 @@ public class Evolucao {
 
     private LocalDateTime atendimentoDe;
     private LocalDateTime atendimentoAte;
-    private Convenio convenio;
+    private ConvenioEnum convenio;
     private String senhaAutenticador;
     private Procedimento procedimento;
     private String descricao;

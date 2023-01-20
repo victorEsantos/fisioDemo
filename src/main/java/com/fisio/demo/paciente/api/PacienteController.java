@@ -1,5 +1,6 @@
 package com.fisio.demo.paciente.api;
 
+import com.fisio.demo.paciente.AlterarPacienteUseCase;
 import com.fisio.demo.paciente.CriarPacienteUseCase;
 import com.fisio.demo.paciente.CriarPacienteUseCase.CriarPacienteCommand;
 import com.fisio.demo.paciente.ListarPacientesUseCase;
@@ -11,6 +12,7 @@ import org.springframework.web.bind.annotation.*;
 import org.springframework.web.servlet.support.ServletUriComponentsBuilder;
 
 import java.util.Optional;
+import java.util.UUID;
 
 @RestController
 @CrossOrigin("*")
@@ -22,10 +24,11 @@ public class PacienteController {
 
     private final CriarPacienteUseCase criarPacienteUseCase;
     private final ListarPacientesUseCase listarPacientesUseCase;
+    private final AlterarPacienteUseCase alterarPacienteUseCase;
 
     @PostMapping
     public ResponseEntity<String> create(@RequestBody PacienteDTO dto) {
-        var id = criarPacienteUseCase.handle(CriarPacienteCommand.from(dto));
+        var id = criarPacienteUseCase.execute(CriarPacienteCommand.from(dto));
 
         var uri = ServletUriComponentsBuilder.fromCurrentRequest().path("/{id}").buildAndExpand(id).toUri();
 
@@ -38,5 +41,12 @@ public class PacienteController {
 
         return ResponseEntity.of(Optional.of(pacientes));
 
+    }
+
+    @PutMapping("/{id}/alterar")
+    public ResponseEntity<String> update(@PathVariable UUID id, @RequestBody PacienteDTO dto) {
+        alterarPacienteUseCase.execute(AlterarPacienteUseCase.AlterarPacienteCommand.from(dto, id));
+
+        return ResponseEntity.ok().build();
     }
 }

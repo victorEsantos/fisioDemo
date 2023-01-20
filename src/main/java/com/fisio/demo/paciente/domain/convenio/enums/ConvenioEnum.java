@@ -1,6 +1,6 @@
-package com.fisio.demo.paciente.domain.evolucao;
+package com.fisio.demo.paciente.domain.convenio.enums;
 
-public enum Convenio {
+public enum ConvenioEnum {
     BRADESCO,
     CASSI,
     MEDISERVICE,
