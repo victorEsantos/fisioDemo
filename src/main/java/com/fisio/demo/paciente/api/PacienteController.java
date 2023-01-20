@@ -5,7 +5,9 @@ import com.fisio.demo.paciente.AlterarPacienteUseCase;
 import com.fisio.demo.paciente.AvaliarPacienteUseCase;
 import com.fisio.demo.paciente.CriarPacienteUseCase;
 import com.fisio.demo.paciente.CriarPacienteUseCase.CriarPacienteCommand;
+import com.fisio.demo.paciente.ListarAvaliacoesPacienteUseCase;
 import com.fisio.demo.paciente.ListarPacientesUseCase;
+import com.fisio.demo.paciente.api.dto.AvaliacaoDto;
 import com.fisio.demo.paciente.api.dto.PacienteDTO;
 import lombok.RequiredArgsConstructor;
 import org.springframework.data.domain.Page;
@@ -29,6 +31,7 @@ public class PacienteController {
     private final AlterarPacienteUseCase alterarPacienteUseCase;
     private final AvaliarPacienteUseCase avaliarPacienteUseCase;
     private final AlterarAvaliacaoPacienteUseCase alterarAvaliacaoPacienteUseCase;
+    private final ListarAvaliacoesPacienteUseCase listarAvaliacoesPacienteUseCase;
 
 
     @PostMapping
@@ -70,6 +73,14 @@ public class PacienteController {
         alterarAvaliacaoPacienteUseCase.execute(id, avaliacaoId, command);
 
         return ResponseEntity.ok().build();
+    }
+
+    @GetMapping("/{id}/avalicoes")
+    public ResponseEntity<Page<AvaliacaoDto>> getAllAvaliacoes(@PathVariable("id") UUID id){
+        var avaliacoes = listarAvaliacoesPacienteUseCase.handle(id);
+
+        return ResponseEntity.of(Optional.of(avaliacoes));
+
     }
 
 }
