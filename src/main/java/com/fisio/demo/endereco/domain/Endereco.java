@@ -1,4 +1,4 @@
-package com.fisio.demo.endereco.model;
+package com.fisio.demo.endereco.domain;
 
 import com.fisio.demo.paciente.PacienteUseCase;
 import com.fisio.demo.paciente.domain.Paciente;

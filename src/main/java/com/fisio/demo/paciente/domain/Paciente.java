@@ -1,8 +1,7 @@
 package com.fisio.demo.paciente.domain;
 
-import com.fisio.demo.endereco.model.Endereco;
+import com.fisio.demo.endereco.domain.Endereco;
 import com.fisio.demo.paciente.AlterarPacienteUseCase;
-import com.fisio.demo.paciente.CriarPacienteUseCase;
 import com.fisio.demo.paciente.domain.avaliacao.Avaliacao;
 import com.fisio.demo.paciente.domain.convenio.Convenio;
 import lombok.AccessLevel;

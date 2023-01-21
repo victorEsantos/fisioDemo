@@ -1,6 +1,6 @@
 package com.fisio.demo.paciente.api.dto;
 
-import com.fisio.demo.endereco.model.Endereco;
+import com.fisio.demo.endereco.domain.Endereco;
 import com.fisio.demo.paciente.domain.Paciente;
 import com.fisio.demo.paciente.domain.convenio.Convenio;
 import com.fisio.demo.paciente.domain.convenio.enums.ConvenioEnum;

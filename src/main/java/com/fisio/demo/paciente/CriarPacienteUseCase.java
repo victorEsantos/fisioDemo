@@ -1,18 +1,12 @@
 package com.fisio.demo.paciente;
 
-import com.fisio.demo.endereco.model.Endereco;
 import com.fisio.demo.paciente.api.dto.PacienteDTO;
-import com.fisio.demo.paciente.api.dto.PacienteDTO.ConvenioDto;
-import com.fisio.demo.paciente.api.dto.PacienteDTO.EnderecoDto;
-import com.fisio.demo.paciente.domain.convenio.Convenio;
-import com.fisio.demo.paciente.domain.convenio.enums.ConvenioEnum;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
 
-import java.time.LocalDate;
 import java.util.UUID;
 
 import static com.fisio.demo.paciente.PacienteUseCase.*;
