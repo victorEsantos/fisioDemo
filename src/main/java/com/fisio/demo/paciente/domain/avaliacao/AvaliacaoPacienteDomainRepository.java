@@ -1,4 +1,4 @@
-package com.fisio.demo.paciente.domain;
+package com.fisio.demo.paciente.domain.avaliacao;
 
 import com.fisio.demo.paciente.domain.avaliacao.Avaliacao;
 

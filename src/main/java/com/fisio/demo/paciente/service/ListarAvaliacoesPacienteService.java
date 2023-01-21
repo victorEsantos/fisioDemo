@@ -2,7 +2,7 @@ package com.fisio.demo.paciente.service;
 
 import com.fisio.demo.paciente.ListarAvaliacoesPacienteUseCase;
 import com.fisio.demo.paciente.api.dto.AvaliacaoDto;
-import com.fisio.demo.paciente.domain.AvaliacaoPacienteDomainRepository;
+import com.fisio.demo.paciente.domain.avaliacao.AvaliacaoPacienteDomainRepository;
 import com.fisio.demo.paciente.domain.avaliacao.Avaliacao;
 import lombok.RequiredArgsConstructor;
 import org.springframework.data.domain.Page;
