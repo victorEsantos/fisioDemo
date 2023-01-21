@@ -1,5 +1,6 @@
 package com.fisio.demo.paciente.domain.avaliacao;
 
+import com.fisio.demo.paciente.EvoluirPacienteUseCase;
 import com.fisio.demo.paciente.domain.Paciente;
 import com.fisio.demo.paciente.domain.evolucao.Evolucao;
 import lombok.AllArgsConstructor;
@@ -8,7 +9,9 @@ import lombok.NoArgsConstructor;
 import lombok.Setter;
 import org.hibernate.annotations.CreationTimestamp;
 
+import javax.persistence.CascadeType;
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
@@ -40,6 +43,10 @@ public class Avaliacao {
     @JoinColumn(name = "paciente_id", nullable = false)
     private Paciente paciente;
 
-    @OneToMany(mappedBy = "avaliacao")
+    @OneToMany(mappedBy = "avaliacao", cascade = CascadeType.ALL, fetch = FetchType.LAZY)
     private Set<Evolucao> evolucoes = new HashSet<>();
+
+    public void evoluir(EvoluirPacienteUseCase.EvoluirPacienteCommand command) {
+        this.getEvolucoes().add(Evolucao.of(command.getAtendimentoDe(), command.getAtendimentoAte(), command.getConvenio(), command.getSenhaAutenticador(), command.getProcedimento(), command.getDescricao()));
+    }
 }
