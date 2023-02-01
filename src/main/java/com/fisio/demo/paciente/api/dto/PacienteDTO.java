@@ -10,6 +10,7 @@ import lombok.NoArgsConstructor;
 import lombok.Setter;
 
 import java.time.LocalDate;
+import java.util.UUID;
 
 import static java.util.Objects.isNull;
 
@@ -18,6 +19,7 @@ import static java.util.Objects.isNull;
 @NoArgsConstructor
 @AllArgsConstructor
 public class PacienteDTO {
+    private UUID id;
     private String nome;
     private String nascimento;
     private String sexo;
@@ -35,6 +37,7 @@ public class PacienteDTO {
     public static PacienteDTO from(Paciente paciente){
 
         return new PacienteDTO(
+                paciente.getId(),
                 paciente.getNome(),
                 paciente.getNascimento(),
                 paciente.getSexo(),
