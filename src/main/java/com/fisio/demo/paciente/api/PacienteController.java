@@ -6,6 +6,7 @@ import com.fisio.demo.paciente.AvaliarPacienteUseCase;
 import com.fisio.demo.paciente.CriarPacienteUseCase;
 import com.fisio.demo.paciente.CriarPacienteUseCase.CriarPacienteCommand;
 import com.fisio.demo.paciente.EvoluirPacienteUseCase;
+import com.fisio.demo.paciente.GetByIdPacientesUseCase;
 import com.fisio.demo.paciente.ListarAvaliacoesPacienteUseCase;
 import com.fisio.demo.paciente.ListarEvolucoesPacienteUseCase;
 import com.fisio.demo.paciente.ListarPacientesUseCase;
@@ -15,7 +16,14 @@ import com.fisio.demo.paciente.api.dto.PacienteDTO;
 import lombok.RequiredArgsConstructor;
 import org.springframework.data.domain.Page;
 import org.springframework.http.ResponseEntity;
-import org.springframework.web.bind.annotation.*;
+import org.springframework.web.bind.annotation.CrossOrigin;
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.PutMapping;
+import org.springframework.web.bind.annotation.RequestBody;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.servlet.support.ServletUriComponentsBuilder;
 
 import java.util.Optional;
@@ -31,6 +39,7 @@ public class PacienteController {
 
     private final CriarPacienteUseCase criarPacienteUseCase;
     private final ListarPacientesUseCase listarPacientesUseCase;
+    private final GetByIdPacientesUseCase getByIdPacientesUseCase;
     private final AlterarPacienteUseCase alterarPacienteUseCase;
     private final AvaliarPacienteUseCase avaliarPacienteUseCase;
     private final AlterarAvaliacaoPacienteUseCase alterarAvaliacaoPacienteUseCase;
@@ -51,6 +60,14 @@ public class PacienteController {
     @GetMapping
     public ResponseEntity<Page<PacienteDTO>> getAll(){
         var pacientes = listarPacientesUseCase.handle();
+
+        return ResponseEntity.of(Optional.of(pacientes));
+
+    }
+
+    @GetMapping("/{id}")
+    public ResponseEntity<PacienteDTO> getById(@PathVariable UUID id){
+        var pacientes = getByIdPacientesUseCase.handle(id);
 
         return ResponseEntity.of(Optional.of(pacientes));
 

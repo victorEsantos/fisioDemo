@@ -20,6 +20,7 @@ import javax.persistence.JoinColumn;
 import javax.persistence.OneToMany;
 import javax.persistence.OneToOne;
 import javax.persistence.Table;
+import java.time.LocalDate;
 import java.util.HashSet;
 import java.util.Set;
 import java.util.UUID;
@@ -38,8 +39,8 @@ public class Paciente {
     @GeneratedValue(strategy = GenerationType.AUTO)
     private UUID id;
     private String nome;
-    private String nascimento;
-    private String sexo;
+    private LocalDate nascimento;
+    private Sexo sexo;
     private String cpf;
     private String rg;
     private String estadoCivil;

@@ -1,12 +1,14 @@
 package com.fisio.demo.paciente;
 
 import com.fisio.demo.paciente.api.dto.PacienteDTO;
+import com.fisio.demo.paciente.domain.Sexo;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
 
+import java.time.LocalDate;
 import java.util.UUID;
 
 import static com.fisio.demo.paciente.PacienteUseCase.*;
@@ -22,8 +24,8 @@ public interface CriarPacienteUseCase {
         @Builder
         class CriarPacienteCommand {
             private String nome;
-            private String nascimento;
-            private String sexo;
+            private LocalDate nascimento;
+            private Sexo sexo;
             private String cpf;
             private String rg;
             private String estadoCivil;

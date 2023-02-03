@@ -2,6 +2,7 @@ package com.fisio.demo.paciente.api.dto;
 
 import com.fisio.demo.endereco.domain.Endereco;
 import com.fisio.demo.paciente.domain.Paciente;
+import com.fisio.demo.paciente.domain.Sexo;
 import com.fisio.demo.paciente.domain.convenio.Convenio;
 import com.fisio.demo.paciente.domain.convenio.enums.ConvenioEnum;
 import lombok.AllArgsConstructor;
@@ -21,8 +22,8 @@ import static java.util.Objects.isNull;
 public class PacienteDTO {
     private UUID id;
     private String nome;
-    private String nascimento;
-    private String sexo;
+    private LocalDate nascimento;
+    private Sexo sexo;
     private String cpf;
     private String rg;
     private String estadoCivil;
