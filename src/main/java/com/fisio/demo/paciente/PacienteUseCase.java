@@ -11,6 +11,8 @@ import lombok.Setter;
 
 import java.time.LocalDate;
 
+import static java.util.Objects.isNull;
+
 @Data
 public class PacienteUseCase {
 
@@ -27,6 +29,8 @@ public class PacienteUseCase {
         private ConvenioEnum convenio;
 
         public static ConvenioCommand from(PacienteDTO.ConvenioDto convenio) {
+            if(isNull(convenio)) return null;
+
             return ConvenioCommand.builder()
                     .nome(convenio.getNome())
                     .numero(convenio.getNumero())
@@ -52,6 +56,8 @@ public class PacienteUseCase {
         private String complemento;
 
         public static EnderecoCommand from(PacienteDTO.EnderecoDto endereco) {
+            if(isNull(endereco)) return null;
+
             return EnderecoCommand.builder()
                     .cep(endereco.getCep())
                     .estado(endereco.getEstado())

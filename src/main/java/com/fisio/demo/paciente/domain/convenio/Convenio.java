@@ -17,6 +17,8 @@ import javax.persistence.OneToOne;
 import java.time.LocalDate;
 import java.util.UUID;
 
+import static java.util.Objects.isNull;
+
 @Entity
 @Getter
 @Builder
@@ -34,6 +36,8 @@ public class Convenio {
     private Paciente paciente;
 
     public static Convenio from(PacienteUseCase.ConvenioCommand convenio) {
+        if(isNull(convenio)) return null;
+
         return Convenio.builder()
                 .nome(convenio.getNome())
                 .numero(convenio.getNumero())

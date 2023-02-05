@@ -16,6 +16,8 @@ import javax.persistence.OneToOne;
 import javax.persistence.Table;
 import java.util.UUID;
 
+import static java.util.Objects.isNull;
+
 @Entity
 @Table(name = "endereco")
 @Getter
@@ -37,6 +39,8 @@ public class Endereco {
     private Paciente paciente;
 
     public static Endereco from(PacienteUseCase.EnderecoCommand endereco) {
+        if(isNull(endereco)) return null;
+
         return Endereco.builder()
                 .cep(endereco.getCep())
                 .estado(endereco.getEstado())
