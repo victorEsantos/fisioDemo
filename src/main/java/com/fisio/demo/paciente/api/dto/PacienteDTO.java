@@ -32,7 +32,6 @@ public class PacienteDTO {
     private String telefoneFixo;
     private String celular;
     private ConvenioDto convenio;
-    private String numeroCNS;
     private EnderecoDto endereco;
 
     public static PacienteDTO from(Paciente paciente){
@@ -50,7 +49,6 @@ public class PacienteDTO {
                 paciente.getTelefoneFixo(),
                 paciente.getCelular(),
                 ConvenioDto.from(paciente.getConvenio()),
-                paciente.getNumeroCNS(),
                 EnderecoDto.from(paciente.getEndereco())
         );
 
@@ -65,7 +63,6 @@ public class PacienteDTO {
         private String numero;
         private LocalDate validade;
         private ConvenioEnum convenio;
-
         private String numeroCns;
 
         public static ConvenioDto from(Convenio convenio) {

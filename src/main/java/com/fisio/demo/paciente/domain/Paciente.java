@@ -52,7 +52,6 @@ public class Paciente {
     @OneToOne(cascade = CascadeType.ALL)
     @JoinColumn(name = "convenio_id", referencedColumnName = "id")
     private Convenio convenio;
-    private String numeroCNS;
 
     @OneToOne(cascade = CascadeType.ALL)
     @JoinColumn(name = "endereco_id", referencedColumnName = "id")
@@ -72,7 +71,6 @@ public class Paciente {
                 .nascimento(cmd.getNascimento())
                 .sexo(cmd.getSexo())
                 .estadoCivil(cmd.getEstadoCivil())
-                .numeroCNS(cmd.getNumeroCNS())
                 .email(cmd.getEmail())
                 .profissao(cmd.getProfissao())
                 .telefoneFixo(cmd.getTelefoneFixo())
@@ -94,7 +92,6 @@ public class Paciente {
         this.telefoneFixo = command.getTelefoneFixo();
         this.celular = command.getCelular();
         this.convenio = Convenio.from(command.getConvenio());
-        this.numeroCNS = command.getNumeroCNS();
         this.endereco = Endereco.from(command.getEndereco());
     }
 }

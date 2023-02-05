@@ -34,7 +34,6 @@ public interface CriarPacienteUseCase {
             private String telefoneFixo;
             private String celular;
             private ConvenioCommand convenio;
-            private String numeroCNS;
             private EnderecoCommand endereco;
 
 
@@ -51,7 +50,6 @@ public interface CriarPacienteUseCase {
                         .telefoneFixo(dto.getTelefoneFixo())
                         .celular(dto.getCelular())
                         .convenio(ConvenioCommand.from(dto.getConvenio()))
-                        .numeroCNS(dto.getNumeroCNS())
                         .endereco(EnderecoCommand.from(dto.getEndereco()))
                         .build();
             }

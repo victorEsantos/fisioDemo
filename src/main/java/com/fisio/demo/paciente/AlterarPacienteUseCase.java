@@ -35,7 +35,6 @@ public interface AlterarPacienteUseCase {
         private String telefoneFixo;
         private String celular;
         private ConvenioCommand convenio;
-        private String numeroCNS;
         private EnderecoCommand endereco;
 
         public static AlterarPacienteCommand from(PacienteDTO dto, UUID id) {
@@ -52,7 +51,6 @@ public interface AlterarPacienteUseCase {
                     .telefoneFixo(dto.getTelefoneFixo())
                     .celular(dto.getCelular())
                     .convenio(ConvenioCommand.from(dto.getConvenio()))
-                    .numeroCNS(dto.getNumeroCNS())
                     .endereco(EnderecoCommand.from(dto.getEndereco()))
                     .build();
         }
