@@ -27,6 +27,7 @@ public class PacienteUseCase {
         private String numero;
         private LocalDate validade;
         private ConvenioEnum convenio;
+        private String numeroCns;
 
         public static ConvenioCommand from(PacienteDTO.ConvenioDto convenio) {
             if(isNull(convenio)) return null;
@@ -36,6 +37,7 @@ public class PacienteUseCase {
                     .numero(convenio.getNumero())
                     .validade(convenio.getValidade())
                     .convenio(convenio.getConvenio())
+                    .numeroCns(convenio.getNumeroCns())
                     .build();
         }
     }

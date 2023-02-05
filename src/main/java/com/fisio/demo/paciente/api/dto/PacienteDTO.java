@@ -66,6 +66,8 @@ public class PacienteDTO {
         private LocalDate validade;
         private ConvenioEnum convenio;
 
+        private String numeroCns;
+
         public static ConvenioDto from(Convenio convenio) {
             if(isNull(convenio)) return null;
 
@@ -73,7 +75,8 @@ public class PacienteDTO {
                     convenio.getNome(),
                     convenio.getNumero(),
                     convenio.getValidade(),
-                    convenio.getConvenioMedico()
+                    convenio.getConvenioMedico(),
+                    convenio.getNumeroCns()
             );
         }
     }

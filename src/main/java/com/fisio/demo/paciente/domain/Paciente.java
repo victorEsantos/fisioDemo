@@ -69,6 +69,7 @@ public class Paciente {
                 .nome(cmd.getNome())
                 .cpf(cmd.getCpf())
                 .rg(cmd.getRg())
+                .nascimento(cmd.getNascimento())
                 .sexo(cmd.getSexo())
                 .estadoCivil(cmd.getEstadoCivil())
                 .numeroCNS(cmd.getNumeroCNS())
