@@ -13,10 +13,12 @@ import com.fisio.demo.paciente.ListarPacientesUseCase;
 import com.fisio.demo.paciente.api.dto.AvaliacaoDto;
 import com.fisio.demo.paciente.api.dto.EvolucaoDto;
 import com.fisio.demo.paciente.api.dto.PacienteDTO;
+import com.fisio.demo.paciente.domain.PacienteDomainRepository;
 import lombok.RequiredArgsConstructor;
 import org.springframework.data.domain.Page;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.CrossOrigin;
+import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -46,6 +48,7 @@ public class PacienteController {
     private final ListarAvaliacoesPacienteUseCase listarAvaliacoesPacienteUseCase;
     private final EvoluirPacienteUseCase evoluirPacienteUseCase;
     private final ListarEvolucoesPacienteUseCase listarEvolucoesPacienteUseCase;
+    private final PacienteDomainRepository pacienteDomainRepository;
 
 
     @PostMapping
@@ -55,6 +58,14 @@ public class PacienteController {
         var uri = ServletUriComponentsBuilder.fromCurrentRequest().path("/{id}").buildAndExpand(id).toUri();
 
         return ResponseEntity.created(uri).build();
+    }
+
+    @DeleteMapping
+    public ResponseEntity<String> delete(@PathVariable UUID id) {
+        pacienteDomainRepository.deleteById(id);
+        //todo criar service
+
+        return ResponseEntity.ok().build();
     }
 
     @GetMapping

@@ -10,4 +10,6 @@ public interface PacienteDomainRepository {
     Set<Paciente> findAll();
 
     Optional<Paciente> findById(UUID id);
+
+    void deleteById(UUID id);
 }
