@@ -108,7 +108,7 @@ public class PacienteController {
         return ResponseEntity.ok().build();
     }
 
-    @GetMapping("/{id}/avalicoes")
+    @GetMapping("/{id}/avaliacoes")
     public ResponseEntity<Page<AvaliacaoDto>> getAllAvaliacoes(@PathVariable("id") UUID id){
         var avaliacoes = listarAvaliacoesPacienteUseCase.handle(id);
 
